@@ -1,0 +1,61 @@
+import java.util.*;
+class Main
+{
+    public boolean isPrime(int number)
+    {
+        int i,flag = 1;
+        for(i=2;i<number;i++)
+        {
+            if(number % i==0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if(flag == 1)
+        {
+            return(true);
+        }
+        else
+            return(false);
+    }
+
+    public static void main(String args[])
+    {
+        Scanner in=new Scanner(System.in);
+        Main ob=new Main();
+        int temp1=0;
+        int temp2=0;
+        int diff1=0;
+        int diff2=0;
+        System.out.println("Enter a number");
+        int num=in.nextInt();
+        for(int i=num;;i--)
+        {
+            if(ob.isPrime(i))
+            {
+               diff1 = num - i;
+               temp1=i;
+                break;
+            }
+        }
+        for(int i=num ;; i++)
+        {
+            if(ob.isPrime(i))
+            {
+               diff2 = i-num;
+               temp2=i;
+            break;
+            }
+        }
+        
+        if(diff1<diff2)
+        {
+            System.out.println(temp1);
+        }
+        else
+        {
+            System.out.println(temp2);
+        }
+    }    
+}
